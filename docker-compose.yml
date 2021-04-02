@@ -21,13 +21,11 @@ services:
     expose:
     - '8000'
     environment:
-    - 'ISSUER_URL=http://localhost/keycloak/realms/app'
-    - 'AUTH_URL=http://localhost/keycloak/realms/app/protocol/openid-connect/auth?client_id=app&response_type=code&redirect_uri=http://localhost/auth/callback'
-    - 'TOKEN_URL=http://localhost/keycloak/realms/app/protocol/openid-connect/token'
-    - 'USERINFO_URL=http://localhost/keycloak/realms/app/protocol/openid-connect/userinfo'
-    - 'JWKS_URL=http://localhost/keycloak/realms/app/protocol/openid-connect/certs'
-    entrypoint: ['python3']
-    command: ['app.py']
+    - 'ISSUER_URL=/keycloak/realms/app'
+    - 'AUTH_URL=/keycloak/realms/app/protocol/openid-connect/auth?client_id=app&response_type=code&redirect_uri=http://localhost/auth/callback'
+    - 'TOKEN_URL=/keycloak/realms/app/protocol/openid-connect/token'
+    - 'USERINFO_URL=/keycloak/realms/app/protocol/openid-connect/userinfo'
+    - 'JWKS_URL=/keycloak/realms/app/protocol/openid-connect/certs'
   keycloak:
     image: 'jboss/keycloak:11.0.2'
     container_name: 'keycloak'
